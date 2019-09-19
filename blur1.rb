@@ -1,15 +1,13 @@
 class Image
-  attr_accessor :arr
 
-  def initialize(arr)
-    self.arr = arr
+  def initialize(pixels)
+    @pixels = pixels
   end
 
   def output_image
-    puts "#{self.arr[0].join}"
-    puts "#{self.arr[1].join}"
-    puts "#{self.arr[2].join}"
-    puts "#{self.arr[3].join}"
+    @pixels.each do |row|
+      puts row.join
+    end
   end
 
 end
