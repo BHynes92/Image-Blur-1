@@ -8,12 +8,9 @@ class ImageBlur
 
   def output_image
     @array.each do |row|
-      row.each do |pixel|
-        print pixel, ' '
-      end
-      puts
-    end 
-  end 
+      puts row.join
+    end
+  end
 
   def ones
     one_coordinates = []
@@ -43,7 +40,7 @@ class ImageBlur
 
 end
 
-image = ImageBlur.new([
+img = ImageBlur.new([
   [1, 0, 0, 0, 0],
   [0, 0, 0, 1, 0],
   [0, 0, 1, 0, 0],
@@ -54,7 +51,7 @@ image = ImageBlur.new([
 ])
 
 puts "The starting image is:"
-image.output_image
+img.output_image
 puts "Which gets \"blurred\" into:"
-image.transform
-image.output_image
+img.transform
+img.output_image
