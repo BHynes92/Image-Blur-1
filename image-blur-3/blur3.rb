@@ -59,6 +59,6 @@ img = ImageBlur.new([
 
 puts "The starting image is:"
 img.output_image
-puts "Which gets \"blurred\" into:"
-img.transform(4)
+puts "Which gets \"blurred\" along Manhattan Distances into:"
+img.transform(3)
 img.output_image
