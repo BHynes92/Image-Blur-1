@@ -8,7 +8,7 @@ class ImageBlur
 
   def output_image
     @array.each do |row|
-      puts row.join(" ")
+      puts row.join
     end
   end
 
@@ -31,34 +31,27 @@ class ImageBlur
     @array[row_id][col_id +1] = 1 unless col_id >= @col_length-1
   end
 
-  def transform(n)
-    n.times do
-      blur_coordinates = ones
-      blur_coordinates.each do |x, y|
-        blur(x, y)
-      end
+  def transform
+    blur_coordinates = ones
+    blur_coordinates.each do |x, y|
+      blur(x, y)
     end
   end
 
 end
 
 img = ImageBlur.new([
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,],  
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,], 
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,], 
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,], 
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,], 
+  [1, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [1, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0]
 ])
 
 puts "The starting image is:"
 img.output_image
 puts "Which gets \"blurred\" into:"
-img.transform(4)
+img.transform
 img.output_image
